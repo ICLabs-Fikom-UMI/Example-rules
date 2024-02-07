@@ -1,0 +1,13 @@
+@startuml
+
+actor User as user
+entity "Authentication" as auth
+entity "Hash" as hash
+database "Database" as db
+
+user -> auth: (username, passsword)
+auth -> hash: hash(password)
+hash --> auth:hashed_password
+auth -> db: (email, hashed_password)
+
+@enduml
